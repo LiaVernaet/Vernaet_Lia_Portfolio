@@ -1,5 +1,7 @@
 # Vernaet_Lia_Portfolio
 
-By Lia Vernaet
+Author: Lia Vernaet
+
+Languages: HTML, CSS, JS, PHP
 
 My portfolio website
