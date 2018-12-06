@@ -1,0 +1,2 @@
+arrows to go through videos in lightbox instead of having to close it and reopen it
+add design to title banner - cat?

@@ -1,55 +1,100 @@
-var imageLink = document.querySelectorAll('.imageLink'),
-  		lightbox = document.querySelector('.lightbox'),
-  		closeLBox = lightbox.querySelector('.close-lightbox'),
-		  vidPlayer = lightbox.querySelector('video'),
-		  container = document.getElementById('container'),
-		  count = 0,
-  		 currentSource;
-		var videos = ['mineshaft.mp4', 'soccer.avi', 'car.mp4', 'fruitcy.mp4', 'shark.mp4', 'watch.mp4'];
+(()=> {
+
+    var lightbox = document.getElementsByClassName('.lightbox');
+    var closeButton = document.getElementsByClassName('.closeButton');
+
+   
 
 
- function closeLightBox() {
- lightbox.classList.remove('show-lightbox');
- vidPlayer.currentTime = 0;
- vidPlayer.muted = true;
+    const vm = new Vue({
+        el: '#appVid',
 
- //enable scrolling
-//  if (window.removeEventListener)
-//         window.removeEventListener('DOMMouseScroll', preventDefault, false);
-//     window.onmousewheel = document.onmousewheel = null; 
-//     window.onwheel = null; 
-//     window.ontouchmove = null;  
-//     document.onkeydown = null;  
-//  }
+        data: {
+            videodata : [],
+            singlemoviedata : [],
 
+            videotitle : "",
+            videosource : "",
+            videodescription : "",
+            showDetails : false
+        },
 
- function showVideo() {
-	var pick = this.dataset.pick;
-	console.log(pick);
-	vidPlayer.src = 'videos/'+videos[pick]
- 	lightbox.classList.add('show-lightbox');
- 	vidPlayer.load();
-	vidPlayer.play();
-	count = pick;
- }
-	//prevent scrolling while video is playing
-// 	if (window.addEventListener) // older FF
-// 	window.addEventListener('DOMMouseScroll', preventDefault, false);
-// 	window.onwheel = preventDefault; // modern standard
-//   window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
-//   window.ontouchmove  = preventDefault; // mobile
-//   document.onkeydown  = preventDefaultForScrollKeys;
-  }
+    
 
+        methods : {
+            fetchMore(e) {
+                this.fetchMovieData(e.currentTarget.dataset.movie); // this will be a number (id)
+                
+            },
 
- //events and listeners
-  for(var i = 0; i < imageLink.length; i++) {
- 	imageLink[i].addEventListener('click', showVideo, false);
- }
- closeLBox.addEventListener('click', closeLightBox);
- imageLink.addEventListener('click', showVideo);
+            loadMovie(e) {
+                // stub
+                e.preventDefault();
+
+                dataKey = e.currentTarget.getAttribute('href');
+
+                currentData = this.videodata.filter(video => video.file_Vidname === dataKey);
+
+                this.videotitle = currentData[0].vid_name;
+                this.videodescription = currentData[0].video_info;
+                this.videosource = dataKey;
+
+                this.showDetails = true;
 
 
+            },
 
- //(4) when video finishes playing, also close the lightbox
- //vidPlayer.addEventListener('ended', closeLightBox, false);
+  
+
+             scrollBackUp() {
+                window.scrollTo(0, 0);
+                this.showDetails = false;
+                this.videsource = "";
+            },
+
+         
+
+            closeLBox() {
+                 lightbox.classList.add('close-lightbox');
+             },
+
+
+
+            scrollBackUp() {
+                window.scrollTo(0, 0);
+                this.showDetails = false;
+                this.videosource = "";
+            },
+
+            fetchMovieData(movie) {
+                url = movie ? `./includes/index.php?movie=${movie}` : './includes/index.php';
+
+                fetch(url) // pass in the one or many query
+                .then(res => res.json())
+                .then(data => {
+                    if (movie) {
+                        // getting one movie, so use the single array
+                        console.log(data);
+                        this.singlemoviedata = data;
+                    } else {
+                        // push all the video (or portfolio content) into the video array
+                        console.log(data);
+                        this.videodata = data;
+                    }
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+            }
+        }
+
+
+        
+
+    });
+
+    closeButton.addEventListener("click", closeLBox, false);
+
+
+})(); 
+

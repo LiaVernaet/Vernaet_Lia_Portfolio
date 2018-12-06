@@ -1,15 +1,18 @@
 <!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lia Vernaet</title>
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="css/foundation.css">
-		<link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <title>Lia Vernaet</title>
   </head>
   <section id="siteContainer">
+
 	  
 	   <header class="expanded row" data-sticky-container>
 		<div id="headerCon" data-sticky data-options="marginTop:0" style="width:100%">
@@ -19,7 +22,7 @@
 				<ul id="mainNav" >
    	                <li><a href="#contactPage">contact</a></li>
    	                <li><a href="#myWork">my work</a></li>
-   	                <li><a href="about.html">about me</a></li>
+   	                <li><a href="aboutme.html">about me</a></li>
                </ul>
 				</nav>
 			</div>
@@ -49,54 +52,53 @@
          <div class="small-12 large-10 large-centered columns" id="reelContainer">
          <h2 class="divTitle">Demo Reel</h2>
          <video controls>
-            <source src="videos/reel.mp4" type="video/mp4">
+            <source src="videos/demoreel.mp4" type="video/mp4">
+              <source src="videos/demoreel.webm" type="video/webm">
+                <source src="videos/demoreel.ogv" type="video/ogv">
         </video>
          </div>
     </div>
 
      
 
-    <section class="row" class="iconRow"><h2 class="hide">icons</h2>
-     <h2 class="myWorkTitle" id="myWork">my work</h2>
-      
-     <h2 class="divTitle">animation & video</h2>
       <div id="menu">
+        
+    <section class="row" class="iconRow"><h2 class="hide">icons</h2>
+      <h2 class="myWorkTitle" id="myWork">my work</h2>
+       
+      <h2 class="divTitle">animation & video</h2>
           <h2 class="hidden">Gallery Thumbnails</h2>
-         <a href="#" data-pick="0" id="0" class="imageLink"><img src="images/thumb1.png" alt="thumb1"></a>
-         <a href="#" data-pick="1" id="1" class="imageLink"><img src="images/thumb2.png" alt="thumb2"></a>
-         <a href="#" data-pick="2" id="2" class="imageLink"><img src="images/thumb3.png" alt="thumb3"></a>
-         <a href="#" data-pick="3" id="3" class="imageLink"><img src="images/thumb4.png" alt="thumb4"></a>
-         <a href="#" data-pick="4" id="4" class="imageLink"><img src="images/thumb5.png" alt="thumb5"></a>
-         <a href="#" data-pick="5" id="5" class="imageLink"><img src="images/thumb6.png" alt="thumb6"></a>
+
+          <main id="appVid">
+            <ul>
+                <li v-for="tbl_videos in videodata"id="thumbnails">
+                    <a :href="tbl_videos.file_Vidname" v-on:click="loadMovie" class="show-lightbox">
+                        <img :src="'images/' + tbl_videos.file_Vidthumb" alt="">
+                    </a>
+                </li>
+            </ul>
+          </div>
+
+ 
+     
+               
+              <section class="lightbox" :class="{'show-movie' : showDetails }">
+                <div class="closeButton">
+                   <span v-on:click="scrollBackUp" :class="{'show-lightbox': showDetails }">x</span>
+                  </div>
+                  <h3 class="movie-title"> {{ videotitle }}</h3>
+                  <video :src="'videos/' + videosource" autoplay controls></video>
+                  <div class="movie-details">
+                      <p> {{ videodescription }} </p>
+                  </div>
+              </section>
+
+              <!-- <h2>test</h2>
+
+
+
          </div>
         </section>
-
-        <section class="row" class="iconRow"><h2 class="hide">icons</h2>
-          <h2 class="divTitle">graphic design & photoshop</h2>
-           <div id="menu">
-               <h2 class="hidden">Gallery Thumbnails</h2>
-              <a href="#" data-pick="0" id="6" class="imageLink"><img src="images/thumb7.png" alt="thumb1"></a>
-              <a href="#" data-pick="1" id="7" class="imageLink"><img src="images/thumb8.png" alt="thumb2"></a>
-              <a href="#" data-pick="2" id="8" class="imageLink"><img src="images/thumb9.png" alt="thumb3"></a>
-              <a href="#" data-pick="3" id="9" class="imageLink"><img src="images/thumb10.png" alt="thumb4"></a>
-              <a href="#" data-pick="4" id="10" class="imageLink"><img src="images/thumb11.png" alt="thumb5"></a>
-              <a href="#" data-pick="5" id="11" class="imageLink"><img src="images/thumb12.png" alt="thumb6"></a>
-              </div>
-             </section>
-
-    		 
-             <section class="lightbox">
-              <span class="close-lightbox">x</span>
-              <!-- add the other 2 video sources for fallback / standards -->
-              <video autoplay>
-                  <!-- <source src="video/house-stark.mp4" type="video/mp4"> -->
-              </video>
-        </section>
-
-	  </section>
-
-
-
 
 	  
 <!--this is contact page-->
@@ -121,7 +123,9 @@
 			</form>
          </div>
 	  
-	  </section></div>
+    </section></div>
+    
+
 
 	  
   <footer id="footerCon">
@@ -132,10 +136,11 @@
       </nav>
     </section>
 
-    
-    
 
-    <script src="js/vendor/jquery.js"></script>
+
+
+    
+  </main>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/main.js"></script>

@@ -1,0 +1,59 @@
+.SVGcontainer {
+  margin: 100px auto;
+  text-align: center;  
+
+}
+
+.infographicSVG {
+  list-style: none;
+  display: inline-block;
+  margin-top: 40px;
+  width: 40%;  
+  z-index: auto;
+  position: absolute;
+  right: 450px;
+
+
+}
+
+ .infoText {
+   z-index: initial;
+  fill: #6e717a; 
+  font-family: 'Quicksand';
+  font-size: 16px; 
+  position: absolute;
+  width: 230px;
+  left: 660px;
+  top: 475px;
+
+
+}
+
+.titleText {
+  fill: #7d82d5;
+  /* font-family: 'Quicksand', sans-serif;  */
+  font: 'Quicksand';
+  font-size: 45px;
+  text-align: center;
+
+}
+
+#wheel {
+  /* animation-name: rotateWheel;
+  animation-duration: 2s; */
+  transition: all .5s;
+}
+/* 
+@-webkit-keyframes rotateWheel {
+  from {
+    -webkit-transition: rotate(0deg);
+    transition:rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(40deg);
+    transform:rotate(40deg);
+  }
+
+} */
+

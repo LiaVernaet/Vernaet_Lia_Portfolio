@@ -1,0 +1,23 @@
+TODO
+--------
+-dynamic content must be from database
+-change class and id names
+-fix close button on lightbox
+-add cat to site
+
+upload to godaddy
+
+MOTION
+-------------
+Inspiration folder
+
+WEB
+-------
+Semantic tagging
+Responsive
+validate HTML and CSS
+PHP contact form
+
+
+
+
