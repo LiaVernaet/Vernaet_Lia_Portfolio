@@ -19,7 +19,7 @@
  .infoText {
    z-index: initial;
   fill: #6e717a; 
-  font-family: 'Quicksand';
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px; 
   position: absolute;
   width: 230px;
@@ -31,8 +31,7 @@
 
 .titleText {
   fill: #7d82d5;
-  /* font-family: 'Quicksand', sans-serif;  */
-  font: 'Quicksand';
+  font: 'Quicksand', sans-serif;
   font-size: 45px;
   text-align: center;
 
@@ -43,17 +42,106 @@
   animation-duration: 2s; */
   transition: all .5s;
 }
-/* 
-@-webkit-keyframes rotateWheel {
-  from {
-    -webkit-transition: rotate(0deg);
-    transition:rotate(0deg);
+
+
+
+
+
+@media only screen and (min-width: 1px) and (max-width: 720px) {
+  #headerCon {
+        position: absolute;
+        padding-top: 20px;
+        
+   }
+
+   #logo {
+     display: none;
+
+   }
+
+  #logoMobile {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
   }
 
-  to {
-    -webkit-transform: rotate(40deg);
-    transform:rotate(40deg);
+#banner {
+  padding-bottom: 360px;
+}
+
+#banner h2 {
+      visibility: hidden; 
   }
 
-} */
+  #banner p {
+    visibility: hidden; 
+}
 
+  #mainNav {
+    padding-bottom: 0px;
+
+   }
+
+  #mainNav li {
+    margin: 0 auto;
+    float: none;
+    margin-left: 15px;
+ }
+
+  #mainNav li a {
+    width: 400px;
+    margin-left: 110px;
+    margin-bottom: 30px;
+    padding: 23px;
+    padding-left: 150px;
+    padding-right: 150px;
+    font-size: 43px; 
+  
+  }
+
+  .SVGcontainer {
+    margin: 100px auto;
+    text-align: center;  
+  
+  }
+  
+  .infographicSVG {
+    list-style: none;
+    display: inline-block;
+    margin-top: 40px;
+    width: 40%;  
+    z-index: auto;
+    position: absolute;
+    right: 450px;
+  
+  
+  }
+  
+   .infoText {
+     z-index: initial;
+    fill: #6e717a; 
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px; 
+    position: absolute;
+    width: 230px;
+    left: 660px;
+    top: 475px;
+  
+  
+  }
+  
+  .titleText {
+    fill: #7d82d5;
+    font: 'Quicksand', sans-serif;
+    font-size: 45px;
+    text-align: center;
+  
+  }
+  
+  #wheel {
+    /* animation-name: rotateWheel;
+    animation-duration: 2s; */
+    transition: all .5s;
+  }
+
+}

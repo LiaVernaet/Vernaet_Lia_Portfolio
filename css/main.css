@@ -7,11 +7,15 @@ body {
 #appVid ul {
   margin-left: 100px; }
 
-#thumbnails {
+#appPhoto ul {
+  margin-left: 100px; }
+
+.thumbnails {
   display: inline; }
 
-#thumbnails img {
-  border: 5px solid black; }
+.thumbnails img {
+  border: 5px solid black;
+  margin-bottom: 20px; }
 
 #banner h2, #banner p {
   margin-top: 0;
@@ -89,6 +93,9 @@ ul {
   animation-name: logoAnimate;
   animation-duration: .6s; }
 
+#logoMobile {
+  display: none; }
+
 @keyframes logoAnimate {
   from {
     transform: scale(1); }
@@ -131,6 +138,9 @@ ul {
   font-size: 25px; }
 
 #appVid a {
+  display: inline; }
+
+#appPhoto a {
   display: inline; }
 
 #name, #email, #message {
@@ -182,19 +192,19 @@ a {
   display: block;
   padding-left: 8px; }
 
-#menu a {
+.menu a {
   -webkit-transition: opacity .5s ease-out;
   -moz-transition: opacity .5s ease-out;
   -o-transition: opacity .5s ease-out;
   transition: opacity .5s ease-out; }
 
-#menu a:hover {
+.menu a:hover {
   opacity: .5; }
 
 .movie-title {
   font-size: 50px;
   text-align: center;
-  margin-top: 70px;
+  margin-top: 20px;
   margin-bottom: 10px;
   color: #c0c8ff;
   font-family: "Dancing Script", cursive; }
@@ -243,13 +253,171 @@ a {
   display: none; }
 
 video {
-  width: 65%;
-  border: thin solid #949393; }
+  width: 65%; }
 
 .closeButton span {
   display: none; }
 
 .show-movie {
   max-height: 1200px; }
+
+#catSymbol {
+  float: left;
+  padding-right: 50px;
+  margin-top: 50px; }
+
+#catFlipped {
+  float: right;
+  margin-left: 20px;
+  margin-top: 50px; }
+
+/*# sourceMappingURL=main.css.map */
+.hidden-movies {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  padding-bottom: 40px;
+  background-color: rgba(0, 0, 0, 0.65); }
+
+.hidden-movies2 {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 37%;
+  height: 100%;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-left: 280px;
+  background-color: rgba(0, 0, 0, 0.65); }
+
+.movie-details2 p {
+  text-align: center;
+  margin: 0 auto;
+  color: #a5b1ff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 25px;
+  width: 700px;
+  padding-right: 90px; }
+
+.close-lightbox {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  cursor: pointer; }
+
+.show-movie {
+  max-height: 1000px;
+  display: block; }
+
+@media only screen and (min-width: 1px) and (max-width: 720px) {
+  #headerCon {
+    position: absolute;
+    margin-top: 20px; }
+
+  #logo {
+    display: none; }
+
+  #logoMobile {
+    display: block;
+    text-align: center;
+    margin: 0 auto; }
+
+  #banner {
+    padding-bottom: 360px; }
+
+  #banner h2 {
+    visibility: hidden; }
+
+  #banner p {
+    visibility: hidden; }
+
+  #mainNav {
+    padding-bottom: 0px; }
+
+  #mainNav li {
+    margin: 0 auto;
+    float: none;
+    margin-left: 15px; }
+
+  #mainNav li a {
+    width: 400px;
+    margin-left: 110px;
+    margin-bottom: 30px;
+    padding: 23px;
+    padding-left: 150px;
+    padding-right: 150px;
+    font-size: 43px; }
+
+  .menu {
+    padding-top: 450px; }
+
+  .menu img {
+    width: 500px; }
+
+  #submit {
+    float: right;
+    color: #c0c8ff;
+    font-family: "Dancing Script", cursive;
+    background-color: #6e717a;
+    font-size: 46px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 30px;
+    margin-top: 0; }
+
+  .movie-title {
+    font-size: 70px;
+    margin-top: 40px; }
+
+  .movie-details {
+    padding-top: 12px;
+    margin-bottom: 40px;
+    padding-right: 50px;
+    margin: 10px;
+    margin-left: 50px;
+    margin-right: 50px; }
+
+  .movie-details p {
+    text-align: center;
+    margin: 0 auto;
+    color: #a5b1ff;
+    font-family: "Quicksand", sans-serif;
+    font-size: 25px; }
+
+  .show-scroller {
+    display: inline-block !important; }
+
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.65); }
+
+  .closeButton {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer; }
+
+  .hidden-movies video {
+    width: 80%; } }
 
 /*# sourceMappingURL=main.css.map */

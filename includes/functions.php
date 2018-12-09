@@ -10,12 +10,10 @@ function get_single_video($pdo, $vid) {
     while($row = $get_video->fetch(PDO::FETCH_ASSOC)) {
         $results[] = $row;
 
-        // you could run subresult queries here - just write another function and append.
     }
 
     return $results;
 }
-
 
 
 function get_all_videos($pdo) {
@@ -31,7 +29,35 @@ function get_all_videos($pdo) {
     return $results;
 }
 
+function get_single_photo($pdo, $vid) {
+    $query = "SELECT * FROM tbl_photos WHERE id = '$vid'";
+
+    $get_video = $pdo->query($query);
+    $results = array();
+
+    while($row = $get_video->fetch(PDO::FETCH_ASSOC)) {
+        $results[] = $row;
+
+    }
+
+    return $results;
+}
 
 
+
+
+
+function get_all_photos($pdo) {
+    $query = "SELECT * FROM tbl_photos";
+
+    $get_video = $pdo->query($query);
+    $results = array();
+
+    while($row = $get_video->fetch(PDO::FETCH_ASSOC)) {
+        $results[] = $row;
+    }
+
+    return $results;
+}
 
 ?>

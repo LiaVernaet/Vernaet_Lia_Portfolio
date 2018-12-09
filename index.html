@@ -18,6 +18,7 @@
 		<div id="headerCon" data-sticky data-options="marginTop:0" style="width:100%">
 			<!--header navigation-->
 	      <div class="small-12 large-12 columns" >
+             <a href="index.html"><img src="images/logo.png" id="logoMobile" alt="Logo"></a>
 			  <h2 class="hide">Main Navigation</h2>
 				<ul id="mainNav" >
    	                <li><a href="#contactPage">contact</a></li>
@@ -31,6 +32,7 @@
 			<!--header logo --> 
 			<div class="small-12 large-4 large-pull-9 columns">
         <a href="index.html"><img src="images/logo.png" id="logo" alt="Logo"></a>
+        
 		    </div>
 			 
 		
@@ -42,7 +44,9 @@
     <div id="banner">
     		<div class="small-12 large-12 large-centered columns">
     			<h2>Lia Vernaet</h2>
-    			<p>graphic design, animation, video editing</p>
+          <p>graphic design, animation, video editing</p>
+          
+         
     		</div>
     </div>
 	  </section>
@@ -61,7 +65,7 @@
 
      
 
-      <div id="menu">
+      <div class="menu">
         
     <section class="row" class="iconRow"><h2 class="hide">icons</h2>
       <h2 class="myWorkTitle" id="myWork">my work</h2>
@@ -69,39 +73,59 @@
       <h2 class="divTitle">animation & video</h2>
           <h2 class="hidden">Gallery Thumbnails</h2>
 
-          <main id="appVid">
-            <ul>
-                <li v-for="tbl_videos in videodata"id="thumbnails">
-                    <a :href="tbl_videos.file_Vidname" v-on:click="loadMovie" class="show-lightbox">
-                        <img :src="'images/' + tbl_videos.file_Vidthumb" alt="">
-                    </a>
-                </li>
-            </ul>
-          </div>
+            <main id="appVid">
 
- 
-     
-               
-              <section class="lightbox" :class="{'show-movie' : showDetails }">
-                <div class="closeButton">
-                   <span v-on:click="scrollBackUp" :class="{'show-lightbox': showDetails }">x</span>
-                  </div>
-                  <h3 class="movie-title"> {{ videotitle }}</h3>
-                  <video :src="'videos/' + videosource" autoplay controls></video>
-                  <div class="movie-details">
-                      <p> {{ videodescription }} </p>
-                  </div>
-              </section>
+                <ul>
+                    <li v-for="tbl_videos in videodata" class="thumbnails">
+                        <button :data-movie="tbl_videos.id" v-on:click="fetchMore" class="more-details"></button>
+                        <a :href="tbl_videos.file_Vidname" v-on:click="loadMovie">
+                            <img :src="'images/' + tbl_videos.file_Vidthumb" alt="">
+                        </a>
+                    </li>
+                </ul>
 
-              <!-- <h2>test</h2>
+        
+                <section class="hidden-movies" :class="{'show-movie' : showDetails }">
+                    <span class="close-lightbox" v-on:click="scrollBackUp" :class="{'show-scroller': showDetails }">x</span>
+                    <h3 class="movie-title"> {{ videotitle }}</h3>
+                    <video :src="'videos/' + videosource" autoplay controls></video>
+                    <div class="movie-details">
+                        <p> {{ videodescription }} </p>
+                    </div>
+                </section>
+                
+            </main>
 
+         <!--   <h2 class="divTitle">graphic design</h2>-->
 
+            <!-- <main id="appPhoto">
+
+                <ul>
+                    <li v-for="tbl_photos in photodata" class="thumbnails">
+                        <button :data-movie="tbl_photos.id" v-on:click="fetchMore" class="more-details"></button>
+                        <a :href="tbl_photos.file_photoname" v-on:click="loadMovie">
+                            <img :src="'images/' + tbl_photos.file_Photothumb" alt="">
+                        </a>
+                    </li>
+                </ul>
+
+        
+                <section class="hidden-movies2" :class="{'show-movie' : showDetails }">
+                    <span class="close-lightbox" v-on:click="scrollBackUp" :class="{'show-scroller': showDetails }">x</span>
+                    <h3 class="movie-title"> {{ phototitle }}</h3>
+                    <img :src="'images/' + photosource"></img>
+                    <div class="movie-details2">
+                        <p> {{ photodescription }} </p>
+                    </div>
+                </section>
+                
+            </main> -->
 
          </div>
         </section>
 
-	  
-<!--this is contact page-->
+      </div>
+
 	  <div id="formPartten">
      <section  id="contactPage" class="row">
          <div class="small-12 large-6 large-centered columns" >
@@ -137,12 +161,10 @@
     </section>
 
 
-
-
+<!-- <h2>test</h2> -->
     
-  </main>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
+    <script src="js/what-input.js"></script>
+  <script src="js/foundation.js"></script>
     <script src="js/main.js"></script>
     
   </section>
